@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from "react";
+import { toast } from "react-toastify";
 import { FormInput } from "./FormInput";
 
 import styled from './styles/app.module.scss'
@@ -11,9 +12,34 @@ function App() {
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    console.log(emailInputRef.current?.value);
-    console.log(passwordInputRef.current?.value);
-    console.log(acceptTermsRef.current?.isTermsAccepted);
+    if(emailInputRef.current?.value.trim() === ''  ||
+       !emailInputRef.current?.value.includes('@') || 
+       (passwordInputRef.current?.value.split('').length || 0) < 8) {
+
+      toast.error('🚨 Acesso Negado!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark'
+      });
+
+      return;
+    }
+
+    toast.success('🦄 Acesso Permitido!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'dark'
+    });
   }
 
   function handleAcceptTerms() {
@@ -26,19 +52,6 @@ function App() {
         onSubmit={handleSubmit}
         className={styled.Form}
       >
-        {/* <label
-          htmlFor="email" 
-          className={styled.Label}
-        >
-          Email
-        </label>
-        <input 
-          type="text"
-          placeholder="Insira seu email"
-          ref={emailInputRef}
-          className={styled.Input}
-          id="email"
-        /> */}
 
         <FormInput 
           name="email" 
