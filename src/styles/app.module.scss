@@ -1,0 +1,80 @@
+.Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.Form {
+    width: 300px;
+    padding: 45px 30px 25px;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #1F1F1F;
+}
+
+.Button {
+    font-size: 14px;
+
+    letter-spacing: 1px;
+    background: #ED8936;
+    color: #f7f7f7;
+
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    transition: all .2s;
+
+    &:hover {
+        background: #C05621;
+    }
+}
+
+.AltButton {
+    font-size: 14px;
+
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.36);;
+    color: #f7f7f7;
+
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    transition: all .2s;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.48);;
+    }
+
+    margin-top: 7px;
+}
+
+.Input {
+    font-family: Poppins;
+    font-size: 15px;
+    color: #f7f7f7;
+    border: none;
+    border-bottom: 1px solid #1F1F1F;
+
+
+    margin-bottom: 15px;
+    padding: 5px 3px;
+    background-color: transparent;
+
+    outline: none;
+
+    &:focus {
+        border-bottom: 1px solid #ED8936;
+    }
+}
+
+.Label {
+    font-family: Poppins;
+    font-size: 16px;
+    color: #f7f7f7;
+}
